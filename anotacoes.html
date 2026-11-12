@@ -6,9 +6,11 @@
     <title>Sobre a DOM</title>
 
 </head>
+
+<link rel="stylesheet" href="style.css">
 <body>
     <header>
-        <h1>Conhecendo o DOM</h1>
+        <h1 id="titulo-principal">Conhecendo o DOM</h1>
     </header>
 
     <main>
@@ -17,10 +19,10 @@
             <p>DOM significa <strong>Document object Model</strong>. </p>
             <p>É uma representação do documento HTML em forma de objetos, organizada em uma estrutura hierárquica de árvore, conhecida como DOM Tree.</p>
 
-            <figcaption>
+            <figure>
                 <img src="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/example-dom-tree.svg" alt="representação do document object model">
                 <figcaption>Exemplo de DOM tree(árvore da DOM) - Foto: Mozzila </figcaption>
-            </figcaption>
+            </figure>
 
             <p> Note que cada elemento do HTML está conectado. Chamados esses elementos de nó (node) dentro dessa estrutura.</p>
             
@@ -40,15 +42,88 @@
                 <li> <strong>Capturar eventos</strong>: Alterar um src, um aria-label e etc. </li>
             </ul>
         </section>
+
+        <section>
+            <h2>Exemplo com contador</h2>
+
+            <div class="container-contador">
+              <p id="contador"> 0 </p>
+              <button id="diminuir"> - Diminuir <button>
+              <button id="aumentar"> + Aumentar </button>
+            </div>
+        </section>
+
+        <section class="criar-elementos">
+            <h2>Criando elementos</h2>
+            <form>
+                <label for="tarefa"> Digite a sua tarefa </label>  
+                <input type="text" id="tarefa" placeholder="Comprar banana...">
+                <button id="adicionar-item"> Adicionar item </button>
+            </form>
+            
+            <ul id="lista"></ul>
+
+        </section>
     </main>
 
     <footer>
-        <p>&copf;Todos os direitos reservados - Davi | 2026</p>
+        <p>&copy;Todos os direitos reservados - Davi | 2026</p>
     </footer>
 
     <!-- Área da prática -->
      <script>
+        // capturando  elementos
+        const tituloprincipal = document.getElementById("titulo-principal");
+
+        tituloprincipal.textContent = "Aprendendo JavaScript";
+
+        tituloprincipal.innerHTML = "<em> Ronaldo </em>"
+
+        tituloprincipal.style.color = "red";
+        tituloprincipal.style.backgroundColor = "green";
+        tituloprincipal.style.fontSize = "2.5rem";
+
+        // Capturando mais de um elemento
+        const sections = document.querySelectorAll("section");
         
+        sections.forEach(function(section){
+            section.style.backgroundColor = "#fcda90";
+        })
+
+        // Exemplo de contador
+        const contador = document.getElementById("contador");
+        const btnAumentar = document.querySelector("#aumentar");
+        const btnDiminuir = document.querySelector("#diminuir");
+
+        let numero = 0;
+
+        btnAumentar.addEventListener("click", function (){
+           numero++;
+
+            contador.textContent = numero
+
+        })
+
+        btnDiminuir.addEventListener("click", ()=>{
+            numero--;
+
+            contador.textContent = numero
+        })
+
+        // Criando elementos
+        const lista = document.querySelector("#lista")
+        const botao = document.querySelector("#adicionar-item")
+
+        botao.addEventListener("click", function (){
+            // 1 - Cria elemento
+            const itemlista = document.createElement("li");
+
+            // 2 - Atualiza elemento com o conteúdo
+            itemlista.textContent = "Estudar Eventos do JavaScript";
+
+            // 3 - Anexa/insere/adicionar item a lista
+            lista.appendChild(itemlista);
+        })
      </script>
 </body>
 </html>
