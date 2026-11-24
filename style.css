@@ -25,7 +25,9 @@ body {
   width: 100%;
   background-color: var(--color-dark);
   padding: 1rem 0.5rem;
-  border-bottom: 0.125rem solod var(--color-blue);
+  border-bottom: 0.125rem solid var(--color-blue);
+  position: sticky;
+  top: 0;
 }
 
 nav {
@@ -123,7 +125,7 @@ nav button {
 
 .lista-noticias {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15.625, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   gap: 1rem;
 }
 
@@ -151,6 +153,7 @@ nav button {
   display: flex;
   flex-direction: column;
   padding: 1.25rem;
+  flex: 1;
 }
 
 .card-fonte {
@@ -200,6 +203,14 @@ nav button {
 .card-noticia a:focus-visible {
   outline: 0.25rem solid var(--color-pink);
   outline-offset: 0.25rem;
+}
+
+/* footer */
+footer {
+  background-color: var(--color-dark);
+  color: var(--color-creme);
+  padding: 2rem 1rem;
+  text-align: center;
 }
 
 /* Modal */
