@@ -60,3 +60,5 @@ async function buscarNoticias() {
 
 // Executando/Invocando a função de buscar noticias
 buscarNoticias();
+
+// Adiciona
